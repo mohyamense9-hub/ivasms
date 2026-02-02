@@ -1,0 +1,6 @@
+flask
+flask-login
+flask-sqlalchemy
+telethon
+requests
+gunicorn

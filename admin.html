@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Admin Panel</title></head>
+<body>
+<h1>Admin Panel</h1>
+
+<h2>Create User</h2>
+<form method="POST">
+<input type="text" name="new_username" placeholder="Username">
+<input type="password" name="new_password" placeholder="Password">
+<button type="submit" name="create_account">Create Account</button>
+</form>
+
+<h2>Upload Number File</h2>
+<form method="POST" enctype="multipart/form-data">
+<input type="text" name="country" placeholder="Country">
+<input type="file" name="file">
+<button type="submit" name="upload_file">Upload</button>
+</form>
+
+<h2>Files</h2>
+<ul>
+{% for f in files %}
+<li>{{ f.country }} - {{ f.filename }}
+<form method="POST" style="display:inline;">
+<input type="hidden" name="file_id" value="{{ f.id }}">
+<button type="submit" name="delete_file">Delete</button>
+</form>
+</li>
+{% endfor %}
+</ul>
+
+<form method="POST">
+<button type="submit" name="delete_all">Delete All Files</button>
+</form>
+
+<a href="/logout">Logout</a>
+</body>
+</html>

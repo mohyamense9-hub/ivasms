@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Dashboard</title></head>
+<body>
+<h1>Dashboard</h1>
+
+<h2>OTP✨❤️‍🩹</h2>
+<ul>
+{% for otp in otps %}
+<li>[{{ otp.time }}] {{ otp.message }}</li>
+{% endfor %}
+</ul>
+
+<h2>My Number Files</h2>
+<ul>
+{% for f in files %}
+<li>{{ f.country }} - {{ f.filename }}
+<a href="/download/{{ f.filename }}">Download</a>
+</li>
+{% endfor %}
+</ul>
+
+<h2>Main Channel</h2>
+<a href="https://t.me/selva_number" target="_blank">Go to Telegram Channel</a>
+
+<br><br>
+<a href="/logout">Logout</a>
+</body>
+</html>
